@@ -1,9 +1,11 @@
 package com.example.slatkizalogajimobilnaaplikacija;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -58,9 +60,31 @@ public class MainActivity extends AppCompatActivity {
         String localStorageFullName = localStorageFirstName + " " + localStorageLastName;
         myTextView.setText(localStorageFullName);
 
+        //Postavljanje listenera za dugme za odjavljivanje jer se ono pravi kada se pravi side meni
+        Button logoutButton = findViewById(R.id.logoutButton);
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logoutUser();
+            }
+        });
+
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+    private void logoutUser() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+        // Odjavljivanje i prelazak na LoginActivity
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish(); // Zavrsava trenutni activity
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
