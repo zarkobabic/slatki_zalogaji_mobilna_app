@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -50,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
+        TextView myTextView = findViewById(R.id.panelUsername);
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String localStorageUsername = sharedPreferences.getString("username", "Default Value");
+        String localStorageFirstName = sharedPreferences.getString("firstName","Default Value");
+        String localStorageLastName = sharedPreferences.getString("lastName","Default Value");
+        String localStorageFullName = localStorageFirstName + " " + localStorageLastName;
+        myTextView.setText(localStorageFullName);
+
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }

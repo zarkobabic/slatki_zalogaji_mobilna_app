@@ -87,13 +87,17 @@ public class LoginActivity extends AppCompatActivity {
                 if(snapshot.exists()){
                     DataSnapshot userJSON = snapshot.getChildren().iterator().next();
                     String passwordFromDB = userJSON.child("password").getValue(String.class);
+                    String firstNameFromDB = userJSON.child("firstName").getValue(String.class);
+                    String lastNameFromDB = userJSON.child("lastName").getValue(String.class);
                     if(Objects.equals(passwordFromDB, userPassword)){
                         username.setError(null);
 
                         //Cuvanje u localstorage tj ovde se zove SharedPreferences
-                        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPrefs", MODE_PRIVATE);
+                        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("username", userName);
+                        editor.putString("firstName", firstNameFromDB);
+                        editor.putString("lastName", lastNameFromDB);
                         editor.apply();
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
