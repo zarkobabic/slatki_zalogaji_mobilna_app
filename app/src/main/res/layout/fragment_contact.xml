@@ -1,14 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.contact.ContactFragment">
+    android:layout_height="650dp"
+    android:background="#F05858">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".ui.contact.ContactFragment">
 
-</FrameLayout>
+
+
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/customRed"
+            android:gravity="center">
+
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kontakt"
+                android:textSize="65dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/outfit_bold"
+                android:layout_gravity="center" />
+            <View
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:background="@color/lightOrange"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
+            <!-- Subtitle -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="POSLASTICARNICA"
+                android:fontFamily="@font/outfit_black"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SLATKI"
+                android:textColor="@color/lightOrange"
+                android:fontFamily="@font/outfit_black"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:letterSpacing="0.2"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ZALOGAJI"
+                android:textColor="@color/lightOrange"
+                android:fontFamily="@font/outfit_black"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:letterSpacing="0.2"
+                />
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:background="@color/lightOrange"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"/>
+
+            <!-- Slogan -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SLATKI TRENUCI\nVECNA RADOST"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/outfit_light"/>
+
+            <!-- Description -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cuva tradiciju dobre kuhinje jos od 1980te, a sada je ponovo renovirana 2023. godine!"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:fontFamily="@font/outfit_light"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Posetite nas i uverite se u kvalitet dugo cuvanih tajni!"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:fontFamily="@font/outfit_light"/>
+
+            <!-- Location Icon and Address -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="left">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/baseline_location_pin_24"
+                    android:contentDescription="Lokacija" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Elektrotehnicka 1"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Hours Icon and Hours -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="left">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/baseline_alarm_24"
+                    android:contentDescription="Radno vreme" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="06-22h"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Image Placeholder -->
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/contact_photo"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Slika radnje"
+                android:scaleType="centerCrop"
+                android:background="@drawable/button_background"
+                android:layout_gravity="center" />
+
+            <!-- Social Media Icons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="60dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/instagram"
+                    android:contentDescription="Instagram"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"/>
+
+                <ImageView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@mipmap/facebook"
+                    android:contentDescription="Facebook"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"/>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/twitter"
+                    android:contentDescription="Twitter"
+                    android:clickable="true"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+</ScrollView>
