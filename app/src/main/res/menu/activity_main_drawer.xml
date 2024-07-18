@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Pocetna" />
+<!--            android:icon="@drawable/ic_menu_camera"-->
+        <item
+            android:id="@+id/nav_cookies"
+            android:title="Kolaci" />
+<!--        android:icon="@drawable/ic_menu_gallery"-->
+        <item
+            android:id="@+id/nav_cakes"
+            android:title="Torte" />
+        <item
+            android:id="@+id/nav_personalDataFragment"
+            android:title="Licni podaci" />
+        <!--android:icon="@drawable/ic_menu_slideshow"-->
+        <item
+            android:id="@+id/nav_changePasswordFragment"
+            android:title="Promena lozinke" />
+        <item
+            android:id="@+id/nav_contactFragment"
+            android:title="Kontakt" />
+        <item
+            android:id="@+id/nav_notificationFragment"
+            android:icon="@drawable/notifications"
+            android:title="Obavestenja" />
+        <item
+            android:id="@+id/nav_cartFragment"
+            android:icon="@drawable/baseline_shopping_basket_24"
+            android:title="Korpa" />
+
+    </group>
+</menu>

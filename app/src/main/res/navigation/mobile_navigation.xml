@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.slatkizalogajimobilnaaplikacija.ui.home.HomeFragment"
+        android:label="Pocetna stranica"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_cookies"
+        android:name="com.example.slatkizalogajimobilnaaplikacija.ui.cookies.CookiesFragment"
+        android:label="Kolaci"
+        tools:layout="@layout/fragment_cookies" />
+
+    <fragment
+        android:id="@+id/nav_cakes"
+        android:name="com.example.slatkizalogajimobilnaaplikacija.ui.cakes.CakesFragment"
+        android:label="Torte"
+        tools:layout="@layout/fragment_cakes" />
+    <fragment
+        android:id="@+id/nav_personalDataFragment"
+        android:name="com.example.slatkizalogajimobilnaaplikacija.ui.personal_data.PersonalDataFragment"
+        android:label="Licni podaci"
+        tools:layout="@layout/fragment_personal_data" />
+    <fragment
+        android:id="@+id/nav_changePasswordFragment"
+        android:name="com.example.slatkizalogajimobilnaaplikacija.ui.change_password.ChangePasswordFragment"
+        android:label="Promena lozinke"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/nav_contactFragment"
+        android:name="com.example.slatkizalogajimobilnaaplikacija.ui.contact.ContactFragment"
+        android:label="Kontakt"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/nav_notificationFragment"
+        android:name="com.example.slatkizalogajimobilnaaplikacija.ui.notification.NotificationFragment"
+        android:label="Obavestenja"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/nav_cartFragment"
+        android:name="com.example.slatkizalogajimobilnaaplikacija.ui.cart.CartFragment"
+        android:label="Korpa"
+        tools:layout="@layout/fragment_cart" />
+</navigation>

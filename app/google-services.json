@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "403744054413",
+    "project_id": "slatki-zalogaji-mobilna-app",
+    "storage_bucket": "slatki-zalogaji-mobilna-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403744054413:android:a2702293f1df68174016c4",
+        "android_client_info": {
+          "package_name": "com.example.slatkizalogajimobilnaaplikacija"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVDGj78LP4Yo2Od-KCyctf9ME6Hh9CkHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
