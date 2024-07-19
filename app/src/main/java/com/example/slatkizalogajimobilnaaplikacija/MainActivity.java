@@ -39,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     private DatabaseReference reference;
     private List<PromotionModel> promotionsList;
+
     //inicijalizacija imageSlidera
-    private ImageSlider imageSlider;
-    private ArrayList<SlideModel> slideModels;
+//    private ImageSlider imageSlider;
+//    private ArrayList<SlideModel> slideModels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,21 +52,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        imageSlider = findViewById(R.id.imageSlider);
-        slideModels = new ArrayList<>();
-
-        //Dovlacenje promocija sa firebase baze
-        reference = FirebaseDatabase.getInstance().getReference();
-        promotionsList = new ArrayList<>();
-        readPromotions();
-
-
+//        imageSlider = findViewById(R.id.imageSlider);
+//        slideModels = new ArrayList<>();
+//
+//        //Dovlacenje promocija sa firebase baze
+//        reference = FirebaseDatabase.getInstance().getReference();
+//        promotionsList = new ArrayList<>();
+//        readPromotions();
+//
+//
 //        slideModels.add(new SlideModel(R.mipmap.promotion1, "Promotion1\nKOKO", ScaleTypes.FIT));
 //        slideModels.add(new SlideModel(R.mipmap.promotion2, "Promotion2", ScaleTypes.FIT));
 //        slideModels.add(new SlideModel(R.mipmap.promotion3, "Promotion3", ScaleTypes.FIT));
 //        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
-
-        //Kraj inicijalizacije
+//
+//        //Kraj inicijalizacije
 
 
         setSupportActionBar(binding.appBarMain.toolbar);
@@ -129,30 +130,30 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    //funkcija koja cita promocije iz firebase baze
-    private void readPromotions() {
-        reference.child("promotions").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                promotionsList.clear(); // Clear the list before adding new data
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    PromotionModel promotion = snapshot.getValue(PromotionModel.class);
-                    promotionsList.add(promotion);
-                }
-
-                for (PromotionModel promotion : promotionsList) {
-                    int resourceId = getResources().getIdentifier(promotion.getImage(), "mipmap", getPackageName());
-                    String promotionTitleAndDescription = promotion.getTitle() + "\n\n" + promotion.getDescription();
-                    slideModels.add(new SlideModel(resourceId, promotionTitleAndDescription, ScaleTypes.FIT));
-                }
-                imageSlider.setImageList(slideModels, ScaleTypes.FIT);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-    }
+//    //funkcija koja cita promocije iz firebase baze - premestio sam je u homeFragment
+//    private void readPromotions() {
+//        reference.child("promotions").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                promotionsList.clear(); // Clear the list before adding new data
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    PromotionModel promotion = snapshot.getValue(PromotionModel.class);
+//                    promotionsList.add(promotion);
+//                }
+//
+////                for (PromotionModel promotion : promotionsList) {
+////                    int resourceId = getResources().getIdentifier(promotion.getImage(), "mipmap", getPackageName());
+////                    String promotionTitleAndDescription = promotion.getTitle() + "\n\n" + promotion.getDescription();
+////                    slideModels.add(new SlideModel(resourceId, promotionTitleAndDescription, ScaleTypes.FIT));
+////                }
+////                imageSlider.setImageList(slideModels, ScaleTypes.FIT);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//            }
+//        });
+//    }
 
 }
