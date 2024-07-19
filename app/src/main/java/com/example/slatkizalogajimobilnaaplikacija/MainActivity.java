@@ -8,9 +8,8 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.constants.ScaleTypes;
-import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.slatkizalogajimobilnaaplikacija.adapters.CakeAdapter;
+import com.example.slatkizalogajimobilnaaplikacija.models.Cake;
 import com.example.slatkizalogajimobilnaaplikacija.models.PromotionModel;
 import com.google.android.material.navigation.NavigationView;
 
@@ -21,6 +20,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.slatkizalogajimobilnaaplikacija.databinding.ActivityMainBinding;
 import com.google.firebase.database.DataSnapshot;
@@ -36,9 +37,17 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+//
+//    private DatabaseReference reference;
+//    private List<PromotionModel> promotionsList;
 
-    private DatabaseReference reference;
-    private List<PromotionModel> promotionsList;
+    //
+//    private RecyclerView cakeRecyclerView;
+//    private CakeAdapter cakeAdapter;
+//    private List<Cake> cakeList;
+    //
+
+
 
     //inicijalizacija imageSlidera
 //    private ImageSlider imageSlider;
@@ -52,6 +61,44 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
+
+        //
+
+//        cakeRecyclerView = findViewById(R.id.recycler_view_cakes);
+//        cakeRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//
+//        cakeList = new ArrayList<>();
+//        cakeAdapter = new CakeAdapter(this, cakeList);
+//        cakeRecyclerView.setAdapter(cakeAdapter);
+//
+//        DatabaseReference databaseCakesReference = FirebaseDatabase.getInstance().getReference("cakes");
+//
+//        // Fetch cakes from Firebase
+//        databaseCakesReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                cakeList.clear();
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    Cake cake = snapshot.getValue(Cake.class);
+//                    cakeList.add(cake);
+//                }
+//                cakeAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
+        //
+
+
+
+
+
+
+//          IMAGE SLIDER
 //        imageSlider = findViewById(R.id.imageSlider);
 //        slideModels = new ArrayList<>();
 //
