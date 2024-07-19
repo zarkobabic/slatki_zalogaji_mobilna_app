@@ -29,6 +29,8 @@ navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+#imageslideshow = { group = "com.github.denzcoskun", name = "ImageSlideshow", version.ref = "imageslideshow" }
+imageslideshow = "com.github.denzcoskun:ImageSlideshow:0.1.2"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
