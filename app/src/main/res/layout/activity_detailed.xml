@@ -118,7 +118,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@color/pink">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -132,17 +133,14 @@
                     android:textColor="@color/customRed"
                     android:background="@color/pink"
                     />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_black"
-                    android:text="____"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:paddingLeft="15dp"
-                    android:textColor="@color/customRed"
-                    android:background="@color/pink"
-                    />
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@color/customRed"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="left" />
 
                 <TextView
                     android:id="@+id/descriptionDetailed"
@@ -175,7 +173,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@color/lightOrange">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -189,18 +188,16 @@
                     android:textColor="@color/white"
                     android:background="@color/lightOrange"
                     />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_black"
-                    android:text="____"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:paddingLeft="15dp"
-                    android:textColor="@color/customRed"
-                    android:background="@color/lightOrange"
-                    />
-<!--                TODO zavrsi ovde recycler listu za sastav-->
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@color/customRed"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="left" />
+
+                <!--                TODO zavrsi ovde recycler listu za sastav-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewComposition"
                     android:layout_width="match_parent"
@@ -221,18 +218,14 @@
                     android:textColor="@color/white"
                     android:background="@color/lightOrange"
                     />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_black"
-                    android:text="___"
-                    android:textAlignment="viewEnd"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:paddingRight="15dp"
-                    android:textColor="@color/customRed"
-                    android:background="@color/lightOrange"
-                    />
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="3dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/customRed"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="right" />
                 <TextView
                     android:id="@+id/priceDetailed"
                     android:layout_width="match_parent"
