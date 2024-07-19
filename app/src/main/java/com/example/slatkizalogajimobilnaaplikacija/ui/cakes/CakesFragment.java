@@ -73,8 +73,8 @@ public class CakesFragment extends Fragment {
                     String cakeImage = allCakes.child("image").getValue(String.class);
                     Cake cake = new Cake(cakeTitle, cakeImage);
                     cakeModelList.add(cake);
-                    cakeAdapter.notifyDataSetChanged();
                 }
+                cakeAdapter.notifyDataSetChanged();
             }
 
             @Override

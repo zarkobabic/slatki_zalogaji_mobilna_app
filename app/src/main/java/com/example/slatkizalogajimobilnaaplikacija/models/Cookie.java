@@ -4,7 +4,7 @@ import org.w3c.dom.Comment;
 
 import java.util.List;
 
-public class Cake {
+public class Cookie {
     private Integer idProduct;
     private String title;
     private String description;
@@ -13,10 +13,10 @@ public class Cake {
     private List<String> composition;
     private List<Comment> comments;
 
-    public Cake() {
+    public Cookie() {
     }
 
-    public Cake(String title, String description, String image, String price, List<String> composition, List<Comment> comments, Integer idProduct) {
+    public Cookie(String title, String description, String image, String price, List<String> composition, List<Comment> comments, Integer idProduct) {
         this.title = title;
         this.description = description;
         this.image = image;
@@ -27,7 +27,7 @@ public class Cake {
     }
 
 
-    public Cake(String title, String image) {
+    public Cookie(String title, String image) {
         this.title = title;
         this.image = image;
     }
