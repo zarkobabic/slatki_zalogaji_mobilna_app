@@ -140,10 +140,12 @@ public class DetailedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String commentText = inputCommentDetailed.getText().toString().trim();
                 SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-                String loggedUsername = sharedPreferences.getString("username", "Default Value");
+                String localStorageFirstName = sharedPreferences.getString("firstName","Default Value");
+                String localStorageLastName = sharedPreferences.getString("lastName","Default Value");
+                String loggedUserFullName = localStorageFirstName + " " + localStorageLastName;
 
                 if (!commentText.isEmpty()) {
-                    addCommentToProduct(isCake, idProduct, commentText, loggedUsername);
+                    addCommentToProduct(isCake, idProduct, commentText, loggedUserFullName);
                 } else {
                     Toast.makeText(getParent(), "Please enter a comment", Toast.LENGTH_SHORT).show();
                 }
