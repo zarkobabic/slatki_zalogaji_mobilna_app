@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.slatkizalogajimobilnaaplikacija.adapters.CakeAdapter;
 import com.example.slatkizalogajimobilnaaplikacija.databinding.FragmentCakesBinding;
 import com.example.slatkizalogajimobilnaaplikacija.models.Cake;
+import com.example.slatkizalogajimobilnaaplikacija.models.Comment;
+import com.example.slatkizalogajimobilnaaplikacija.models.Cookie;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,9 +71,26 @@ public class CakesFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot allCakes : dataSnapshot.getChildren()) {
                     //Cake cake = allCakes.getValue(Cake.class);
+                    Integer cakeIdProduct = allCakes.child("idProduct").getValue(Integer.class);
                     String cakeTitle = allCakes.child("title").getValue(String.class);
+                    String cakeDescription =  allCakes.child("description").getValue(String.class);
                     String cakeImage = allCakes.child("image").getValue(String.class);
-                    Cake cake = new Cake(cakeTitle, cakeImage);
+                    String cakePrice =  allCakes.child("price").getValue(String.class);
+
+                    // Dohvatanje itema i quantitija
+                    List<String> compositions = new ArrayList<>();
+                    for (DataSnapshot item : allCakes.child("composition").getChildren()) {
+                        compositions.add(item.getValue(String.class));
+                    }
+
+                    List<Comment> comments = new ArrayList<>();
+                    for (DataSnapshot comment : allCakes.child("comments").getChildren()) {
+                        String commentDescription = comment.child("commentDescription").getValue(String.class);
+                        String userName = comment.child("userName").getValue(String.class);
+                        comments.add(new Comment(commentDescription, userName));
+                    }
+
+                    Cake cake = new Cake(cakeTitle,cakeDescription, cakeImage, cakePrice, compositions, comments, cakeIdProduct);
                     cakeModelList.add(cake);
                 }
                 cakeAdapter.notifyDataSetChanged();

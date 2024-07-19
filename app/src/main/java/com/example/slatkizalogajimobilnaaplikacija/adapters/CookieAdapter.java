@@ -1,6 +1,7 @@
 package com.example.slatkizalogajimobilnaaplikacija.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.slatkizalogajimobilnaaplikacija.DetailedActivity;
 import com.example.slatkizalogajimobilnaaplikacija.R;
 import com.example.slatkizalogajimobilnaaplikacija.models.Cookie;
+import com.example.slatkizalogajimobilnaaplikacija.ui.contact.ContactFragment;
+import com.example.slatkizalogajimobilnaaplikacija.ui.personal_data.PersonalDataFragment;
+
 import java.util.List;
 
 public class CookieAdapter extends RecyclerView.Adapter<CookieAdapter.CookieViewHolder> {
@@ -41,6 +46,17 @@ public class CookieAdapter extends RecyclerView.Adapter<CookieAdapter.CookieView
         String imageNameWithoutExtension = cookie.getImage().split("\\.")[0];
         int imageResourceID = context.getResources().getIdentifier(imageNameWithoutExtension, "mipmap", context.getPackageName());
         holder.itemImageCookie.setImageResource(imageResourceID);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailedActivity.class);
+                //proveriti ovo ispod za getAdapterPosition
+                intent.putExtra("detail", cookieList.get(holder.getAdapterPosition()));
+                context.startActivity(intent);
+            }
+        });
+
 
 
 //        // Example to show composition

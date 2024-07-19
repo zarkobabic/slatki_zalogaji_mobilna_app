@@ -1,6 +1,7 @@
 package com.example.slatkizalogajimobilnaaplikacija.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.slatkizalogajimobilnaaplikacija.DetailedActivity;
 import com.example.slatkizalogajimobilnaaplikacija.R;
 import com.example.slatkizalogajimobilnaaplikacija.models.Cake;
 import java.util.List;
@@ -42,6 +44,15 @@ public class CakeAdapter extends RecyclerView.Adapter<CakeAdapter.CakeViewHolder
         int imageResourceID = context.getResources().getIdentifier(imageNameWithoutExtension, "mipmap", context.getPackageName());
         holder.imageViewCake.setImageResource(imageResourceID);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailedActivity.class);
+                //proveriti ovo ispod za getAdapterPosition
+                intent.putExtra("detail", cakeList.get(holder.getAdapterPosition()));
+                context.startActivity(intent);
+            }
+        });
 
 //        // Example to show composition
 //        StringBuilder compositionText = new StringBuilder();

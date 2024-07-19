@@ -1,6 +1,8 @@
 package com.example.slatkizalogajimobilnaaplikacija.models;
 
-public class Comment {
+import java.io.Serializable;
+
+public class Comment implements Serializable {
     private String commentDescription;
     private String userName;
 

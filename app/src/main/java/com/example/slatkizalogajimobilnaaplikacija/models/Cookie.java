@@ -1,10 +1,9 @@
 package com.example.slatkizalogajimobilnaaplikacija.models;
 
-import org.w3c.dom.Comment;
-
+import java.io.Serializable;
 import java.util.List;
 
-public class Cookie {
+public class Cookie implements Serializable {
     private Integer idProduct;
     private String title;
     private String description;

@@ -1,10 +1,10 @@
 package com.example.slatkizalogajimobilnaaplikacija.models;
 
-import org.w3c.dom.Comment;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Cake {
+public class Cake implements Serializable {
     private Integer idProduct;
     private String title;
     private String description;

@@ -1,373 +1,393 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="650dp"
+    android:layout_height="605dp"
     android:background="#F05858"
     android:fillViewport="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main2"
+        android:layout_width="match_parent"
+        android:layout_height="530dp"
+        android:background="#F05858"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/outfit_bold"
+                android:paddingTop="16dp"
+                android:text="Detaljan pregled proizvoda"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="65dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/lightOrange" />
+
+
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="30dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:orientation="vertical"
+                android:padding="8dp"
+                app:cardCornerRadius="25dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageDetailed"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:id="@+id/titleDetailed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/pink"
+                        android:fontFamily="@font/outfit_black"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:text="Text_placeholder"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="30dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:orientation="vertical"
+                android:padding="8dp"
+                app:cardCornerRadius="25dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/pink"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/pink"
+                        android:fontFamily="@font/outfit_black"
+                        android:paddingHorizontal="15dp"
+                        android:paddingTop="15dp"
+                        android:text="Opis"
+                        android:textColor="@color/customRed"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="3dp"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/customRed" />
+
+                    <TextView
+                        android:id="@+id/descriptionDetailed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/pink"
+                        android:fontFamily="@font/outfit_black"
+                        android:padding="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:text="Description placeholder Sed pulvinar tempus iaculis. Donec ac tristique sapien. Nam lacinia nunc eget sem sodales tempus. Vivamus nulla mi, ullamcorper vel diam at, pulvinar placerat ipsum. Suspendisse rhoncus auctor elit, sed pellentesque orci sagittis id. Donec ac nulla et nulla sagittis pharetra. Ut id purus vel risus porttitor tempor. Sed a sem vitae risus hendrerit scelerisque at commodo urna. Vestibulum enim lorem, imperdiet quis placerat eu, porttitor ut ex. "
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="30dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:orientation="vertical"
+                android:padding="8dp"
+                app:cardCornerRadius="25dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lightOrange"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightOrange"
+                        android:fontFamily="@font/outfit_black"
+                        android:paddingHorizontal="15dp"
+                        android:paddingTop="15dp"
+                        android:text="Sastav"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="3dp"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/customRed" />
+
+                    <TextView
+                        android:id="@+id/compositionDetailed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightOrange"
+                        android:fontFamily="@font/outfit_regular"
+                        android:paddingStart="15dp"
+                        android:paddingTop="15dp"
+                        android:text="Compositions placeholder"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightOrange"
+                        android:fontFamily="@font/outfit_black"
+                        android:paddingTop="15dp"
+                        android:paddingRight="15dp"
+                        android:text="Cena"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="3dp"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/customRed" />
+
+                    <TextView
+                        android:id="@+id/priceDetailed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightOrange"
+                        android:fontFamily="@font/outfit_regular"
+                        android:paddingHorizontal="15dp"
+                        android:paddingBottom="20dp"
+                        android:text="price_placeholder"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/customRed"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/lightOrange" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/outfit_bold"
+                android:paddingTop="16dp"
+                android:text="Sta ostali misle?"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="65dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/lightOrange" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp" />
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/lightOrange" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/outfit_bold"
+                android:paddingHorizontal="10dp"
+                android:paddingTop="16dp"
+                android:text="Podelite vase iskustvo sa nama"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="65dp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/lightOrange" />
+
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="30dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:orientation="vertical"
+                android:padding="8dp"
+                app:cardCornerRadius="25dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lightOrange"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightOrange"
+                        android:fontFamily="@font/outfit_black"
+                        android:paddingHorizontal="15dp"
+                        android:paddingTop="15dp"
+                        android:text="Ostavite komentar:"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="45dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/inputCommentDetailed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/outfit_light"
+                        android:hint="Unesite vas komentar ovde"
+                        android:minLines="10"
+                        android:padding="15dp"
+                        android:maxLines="20"
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine"
+                        android:scrollbars="vertical"
+                        android:background="@color/pink" />
+
+                    <Button
+                        android:id="@+id/buttonAddComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button_background"
+                        android:fontFamily="@font/outfit_regular"
+                        android:paddingLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:paddingRight="20dp"
+                        android:text="Unesi komentar"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Detaljan pregled proizvoda"
-            android:textAlignment="center"
-            android:textSize="65dp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:paddingTop="16dp"
-            android:fontFamily="@font/outfit_bold"
-            android:layout_gravity="center" />
-
-        <View
-            android:layout_width="200dp"
-            android:layout_height="5dp"
-            android:background="@color/lightOrange"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center" />
-
-
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:layout_marginVertical="30dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="60dp"
-            app:cardCornerRadius="25dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageDetailed"
-                    android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    android:scaleType="centerCrop" />
-
-                <TextView
-                    android:id="@+id/titleDetailed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_black"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:text="Text_placeholder"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:background="@color/pink"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
+        android:background="@color/lightOrange"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingVertical="15dp"
+        app:layout_constraintTop_toBottomOf="@id/main2">
         <EditText
             android:id="@+id/quantityDetailed"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="60dp"
             android:background="@drawable/input_background"
             android:elevation="3dp"
-            android:ems="10"
             android:fontFamily="@font/outfit_regular"
             android:inputType="number"
             android:lineSpacingExtra="34sp"
             android:padding="13dp"
-            android:hint="Unesite kolicinu za narucivanje"
+            android:hint="Unesite kolicinu"
             android:textAlignment="center"
             android:textColor="@color/grey_font"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:layout_marginRight="20dp"/>
 
         <Button
             android:id="@+id/buttonAddToCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:background="@drawable/button_background"
             android:fontFamily="@font/outfit_regular"
             android:paddingLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="50dp"
             android:paddingRight="20dp"
             android:text="Dodaj u korpu"
-            android:textColor="@color/white"/>
-
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:layout_marginVertical="30dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="60dp"
-            app:cardCornerRadius="25dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/pink">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_black"
-                    android:paddingTop="15dp"
-                    android:text="Opis"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="15dp"
-                    android:textColor="@color/customRed"
-                    android:background="@color/pink"
-                    />
-                <View
-                    android:layout_width="50dp"
-                    android:layout_height="3dp"
-                    android:layout_marginStart="15dp"
-                    android:background="@color/customRed"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_gravity="left" />
-
-                <TextView
-                    android:id="@+id/descriptionDetailed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_black"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:text="Description placeholder Sed pulvinar tempus iaculis. Donec ac tristique sapien. Nam lacinia nunc eget sem sodales tempus. Vivamus nulla mi, ullamcorper vel diam at, pulvinar placerat ipsum. Suspendisse rhoncus auctor elit, sed pellentesque orci sagittis id. Donec ac nulla et nulla sagittis pharetra. Ut id purus vel risus porttitor tempor. Sed a sem vitae risus hendrerit scelerisque at commodo urna. Vestibulum enim lorem, imperdiet quis placerat eu, porttitor ut ex. "
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:padding="15dp"
-                    android:textColor="@color/black"
-                    android:background="@color/pink"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:layout_marginVertical="30dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="60dp"
-            app:cardCornerRadius="25dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/lightOrange">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_black"
-                    android:paddingTop="15dp"
-                    android:text="Sastav"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="15dp"
-                    android:textColor="@color/white"
-                    android:background="@color/lightOrange"
-                    />
-                <View
-                    android:layout_width="50dp"
-                    android:layout_height="3dp"
-                    android:layout_marginStart="15dp"
-                    android:background="@color/customRed"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_gravity="left" />
-
-                <!--                TODO zavrsi ovde recycler listu za sastav-->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewComposition"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/lightOrange"
-                    android:padding="15dp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_black"
-                    android:paddingTop="15dp"
-                    android:text="Cena"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:paddingRight="15dp"
-                    android:textAlignment="viewEnd"
-                    android:textColor="@color/white"
-                    android:background="@color/lightOrange"
-                    />
-                <View
-                    android:layout_width="50dp"
-                    android:layout_height="3dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@color/customRed"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_gravity="right" />
-                <TextView
-                    android:id="@+id/priceDetailed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_regular"
-                    android:text="price_placeholder"
-                    android:textSize="18sp"
-                    android:paddingBottom="20dp"
-                    android:paddingHorizontal="15dp"
-                    android:textAlignment="viewEnd"
-                    android:textColor="@color/customRed"
-                    android:background="@color/lightOrange" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <View
-            android:layout_width="200dp"
-            android:layout_height="5dp"
-            android:background="@color/lightOrange"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sta ostali misle?"
-            android:textAlignment="center"
-            android:textSize="65dp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:paddingTop="16dp"
-            android:fontFamily="@font/outfit_bold"
-            android:layout_gravity="center" />
-
-        <View
-            android:layout_width="200dp"
-            android:layout_height="5dp"
-            android:background="@color/lightOrange"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewComments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"/>
-
-        <View
-            android:layout_width="200dp"
-            android:layout_height="5dp"
-            android:background="@color/lightOrange"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Podelite vase iskustvo sa nama"
-            android:textAlignment="center"
-            android:textSize="65dp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:paddingTop="16dp"
-            android:paddingHorizontal="10dp"
-            android:fontFamily="@font/outfit_bold"
-            android:layout_gravity="center" />
-
-        <View
-            android:layout_width="200dp"
-            android:layout_height="5dp"
-            android:background="@color/lightOrange"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center" />
-
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:layout_marginVertical="30dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="60dp"
-            app:cardCornerRadius="25dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/lightOrange">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_black"
-                    android:paddingTop="15dp"
-                    android:text="Ostavite komentar:"
-                    android:textAlignment="center"
-                    android:textSize="45dp"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="15dp"
-                    android:textColor="@color/white"
-                    android:background="@color/lightOrange"
-                    />
-
-                <EditText
-                    android:id="@+id/inputCommentDetailed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minLines="10"
-                    android:hint="Unesite vas komentar ovde"
-                    android:fontFamily="@font/outfit_light"
-                    android:padding="15dp"
-                    android:maxLines="20"
-                    android:gravity="top|start"
-                    android:inputType="textMultiLine"
-                    android:scrollbars="vertical"
-                    android:background="@color/pink" />
-
-                <Button
-                    android:id="@+id/buttonAddComment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@drawable/button_background"
-                    android:fontFamily="@font/outfit_regular"
-                    android:paddingLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:paddingRight="20dp"
-                    android:text="Unesi komentar"
-                    android:textColor="@color/white"/>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-
-
+            android:textColor="@color/white"
+            android:layout_gravity="right"/>
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
