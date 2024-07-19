@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.notification.NotificationFragment">
+    android:layout_height="650dp"
+    android:background="#F05858"
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Obavestenja"
+            android:textSize="55dp"
+            android:textStyle="bold"
+            android:paddingHorizontal="15dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/outfit_bold"
+            android:layout_gravity="center" />
+
+        <View
+            android:layout_width="200dp"
+            android:layout_height="5dp"
+            android:background="@color/lightOrange"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_marginVertical="30dp" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

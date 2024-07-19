@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     String passwordFromDB = userJSON.child("password").getValue(String.class);
                     String firstNameFromDB = userJSON.child("firstName").getValue(String.class);
                     String lastNameFromDB = userJSON.child("lastName").getValue(String.class);
+                    Integer idFromDB = userJSON.child("id").getValue(Integer.class);
                     if(Objects.equals(passwordFromDB, userPassword)){
                         username.setError(null);
 
@@ -98,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("username", userName);
                         editor.putString("firstName", firstNameFromDB);
                         editor.putString("lastName", lastNameFromDB);
+                        editor.putInt("idLoggedUser", idFromDB);
                         editor.apply();
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
