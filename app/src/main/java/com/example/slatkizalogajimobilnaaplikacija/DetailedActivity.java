@@ -1,23 +1,39 @@
 package com.example.slatkizalogajimobilnaaplikacija;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.slatkizalogajimobilnaaplikacija.adapters.CommentAdapter;
+import com.example.slatkizalogajimobilnaaplikacija.databinding.ActivityMainBinding;
 import com.example.slatkizalogajimobilnaaplikacija.models.Cake;
 import com.example.slatkizalogajimobilnaaplikacija.models.Comment;
 import com.example.slatkizalogajimobilnaaplikacija.models.Cookie;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +46,8 @@ public class DetailedActivity extends AppCompatActivity {
     Button buttonAddComment,buttonAddToCart;
     Cake cakeToShow = null;
     Cookie cookieToShow = null;
+    Integer idProduct = -1;
+    Boolean isCake = false;
 
     RecyclerView commentRecycler;
     CommentAdapter commentAdapter;
@@ -64,7 +82,8 @@ public class DetailedActivity extends AppCompatActivity {
             //kad je torta
             cakeToShow = (Cake) productToShowOnPage;
             if(cakeToShow != null){
-
+                isCake = true;
+                idProduct = cakeToShow.getIdProduct();
                 String imageNameWithoutExtension = cakeToShow.getImage().split("\\.")[0];
                 int imageResourceID = getResources().getIdentifier(imageNameWithoutExtension, "mipmap", getPackageName());
                 imageDetailed.setImageResource(imageResourceID);
@@ -88,7 +107,8 @@ public class DetailedActivity extends AppCompatActivity {
             //kad je kolac
             cookieToShow = (Cookie) productToShowOnPage;
             if(cookieToShow != null){
-
+                isCake = false;
+                idProduct = cookieToShow.getIdProduct();
                 String imageNameWithoutExtension = cookieToShow.getImage().split("\\.")[0];
                 int imageResourceID = getResources().getIdentifier(imageNameWithoutExtension, "mipmap", getPackageName());
                 imageDetailed.setImageResource(imageResourceID);
@@ -111,10 +131,120 @@ public class DetailedActivity extends AppCompatActivity {
         }
 
 
+
+        //Button listeners
+
+
+        buttonAddComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String commentText = inputCommentDetailed.getText().toString().trim();
+                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                String loggedUsername = sharedPreferences.getString("username", "Default Value");
+
+                if (!commentText.isEmpty()) {
+                    addCommentToProduct(isCake, idProduct, commentText, loggedUsername);
+                } else {
+                    Toast.makeText(getParent(), "Please enter a comment", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
+        //
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
     }
+
+//    private void addCommentToProduct(Boolean isCake, Integer idProduct, String commentDescription, String userName) {
+//
+//        DatabaseReference databaseRef;
+//        if(isCake){
+//            //cake
+//            databaseRef = FirebaseDatabase.getInstance().getReference("cakes");;
+//        }else{
+//            //cookie
+//            databaseRef = FirebaseDatabase.getInstance().getReference("cookies");
+//        }
+//
+//        Query query = databaseRef.orderByChild("idProduct").equalTo(idProduct);
+//        query.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists()) {
+//                    for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+//                        DatabaseReference commentRef = productSnapshot.getRef().child("comments");
+//                        String commentId = commentRef.push().getKey();
+//                        Comment newComment = new Comment(commentDescription, userName);
+//
+//                        if (commentId != null) {
+//                            commentRef.child(commentId).setValue(newComment);
+//                            inputCommentDetailed.setText("");
+//                            commentAdapter.notifyDataSetChanged();
+//                        }
+//                    }
+//                } else {
+//                    Toast.makeText(getParent(), "Product not found", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Toast.makeText(getParent(), "Failed to add comment: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//
+//    }
+
+
+    private void addCommentToProduct(Boolean isCake, Integer idProduct, String commentDescription, String userName) {
+        DatabaseReference databaseRef;
+        if (isCake) {
+            databaseRef = FirebaseDatabase.getInstance().getReference("cakes");
+        } else {
+            databaseRef = FirebaseDatabase.getInstance().getReference("cookies");
+        }
+
+        Query query = databaseRef.orderByChild("idProduct").equalTo(idProduct);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
+                        DatabaseReference commentRef = productSnapshot.getRef().child("comments");
+                        String commentId = commentRef.push().getKey();
+                        Comment newComment = new Comment(commentDescription, userName);
+
+                        if (commentId != null) {
+                            commentRef.child(commentId).setValue(newComment).addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    commentModelList.add(newComment); // Add the new comment to the local list
+                                    commentAdapter.notifyDataSetChanged(); // Notify the adapter about the change
+                                    inputCommentDetailed.setText(""); // Clear the input field
+                                    Toast.makeText(DetailedActivity.this, "Comment added", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(DetailedActivity.this, "Failed to add comment", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }
+                } else {
+                    Toast.makeText(DetailedActivity.this, "Product not found", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(DetailedActivity.this, "Failed to add comment: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

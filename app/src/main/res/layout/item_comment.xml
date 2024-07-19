@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="20dp"
-            android:paddingStart="20dp"
+            android:paddingHorizontal="20dp"
             android:text="Comment_text_placeholder"
             android:scaleType="centerCrop"
             android:fontFamily="@font/outfit_regular"
