@@ -37,8 +37,11 @@ public class CakeAdapter extends RecyclerView.Adapter<CakeAdapter.CakeViewHolder
         holder.titleTextView.setText(cake.getTitle());
 //        holder.descriptionTextView.setText(cake.getDescription());
 //        holder.priceTextView.setText(cake.getPrice());
+        // Ensure cake.getImage() returns the correct resource name
+        String imageNameWithoutExtension = cake.getImage().split("\\.")[0];
+        int imageResourceID = context.getResources().getIdentifier(imageNameWithoutExtension, "mipmap", context.getPackageName());
+        holder.imageViewCake.setImageResource(imageResourceID);
 
-        holder.imageViewCake.setImageResource(R.mipmap.promotion1);
 
 //        // Example to show composition
 //        StringBuilder compositionText = new StringBuilder();

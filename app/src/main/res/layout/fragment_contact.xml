@@ -197,6 +197,7 @@
                     android:src="@mipmap/instagram"
                     android:contentDescription="Instagram"
                     android:layout_marginEnd="8dp"
+                    android:tint="@color/white"
                     android:clickable="true"/>
 
                 <ImageView
@@ -205,6 +206,7 @@
                     android:src="@mipmap/facebook"
                     android:contentDescription="Facebook"
                     android:layout_marginEnd="8dp"
+                    android:tint="@color/white"
                     android:clickable="true"/>
 
                 <ImageView
@@ -212,7 +214,8 @@
                     android:layout_height="40dp"
                     android:src="@mipmap/twitter"
                     android:contentDescription="Twitter"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:tint="@color/white" />
             </LinearLayout>
         </LinearLayout>
 
