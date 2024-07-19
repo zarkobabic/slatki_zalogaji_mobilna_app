@@ -11,9 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.slatkizalogajimobilnaaplikacija.adapters.CommentAdapter;
 import com.example.slatkizalogajimobilnaaplikacija.models.Cake;
+import com.example.slatkizalogajimobilnaaplikacija.models.Comment;
 import com.example.slatkizalogajimobilnaaplikacija.models.Cookie;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DetailedActivity extends AppCompatActivity {
 
@@ -23,6 +30,10 @@ public class DetailedActivity extends AppCompatActivity {
     Button buttonAddComment,buttonAddToCart;
     Cake cakeToShow = null;
     Cookie cookieToShow = null;
+
+    RecyclerView commentRecycler;
+    CommentAdapter commentAdapter;
+    List<Comment> commentModelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +52,11 @@ public class DetailedActivity extends AppCompatActivity {
         buttonAddComment = findViewById(R.id.buttonAddComment);
         buttonAddToCart = findViewById(R.id.buttonAddToCart);
 
+        commentRecycler = findViewById(R.id.recyclerViewComments);
+        commentRecycler.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL, false));
+        commentModelList = new ArrayList<>();
+        commentAdapter = new CommentAdapter(this,commentModelList);
+        commentRecycler.setAdapter(commentAdapter);
         //
 
         final Object productToShowOnPage = getIntent().getSerializableExtra("detail");
@@ -63,6 +79,10 @@ public class DetailedActivity extends AppCompatActivity {
                 compositionDetailed.setText(compositionBuilder.toString());
 
                 priceDetailed.setText(cakeToShow.getPrice());
+                for(Comment comment:cakeToShow.getComments()){
+                    commentModelList.add(comment);
+                }
+                commentAdapter.notifyDataSetChanged();
             }
         }else{
             //kad je kolac
@@ -83,6 +103,10 @@ public class DetailedActivity extends AppCompatActivity {
                 compositionDetailed.setText(compositionBuilder.toString());
 
                 priceDetailed.setText(cookieToShow.getPrice());
+                for(Comment comment:cookieToShow.getComments()){
+                    commentModelList.add(comment);
+                }
+                commentAdapter.notifyDataSetChanged();
             }
         }
 
