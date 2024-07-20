@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.slatkizalogajimobilnaaplikacija.adapters.CommentAdapter;
 import com.example.slatkizalogajimobilnaaplikacija.databinding.ActivityMainBinding;
 import com.example.slatkizalogajimobilnaaplikacija.models.Cake;
+import com.example.slatkizalogajimobilnaaplikacija.models.CartItem;
 import com.example.slatkizalogajimobilnaaplikacija.models.Comment;
 import com.example.slatkizalogajimobilnaaplikacija.models.Cookie;
 import com.google.android.material.navigation.NavigationView;
@@ -34,7 +35,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -153,6 +157,33 @@ public class DetailedActivity extends AppCompatActivity {
         });
 
 
+        buttonAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String quantityString = quantityDetailed.getText().toString().trim();
+
+                if (!quantityString.isEmpty()) {
+                    Integer quantity = Integer.parseInt(quantityString);
+
+                    Integer idInCart = getNextIdInCart();
+                    CartItem cartItem;
+                    if (isCake) {
+                        cartItem = new CartItem(idInCart, idProduct, cakeToShow.getPrice(), quantity, cakeToShow.getTitle());
+                    } else {
+                        cartItem = new CartItem(idInCart, idProduct, cookieToShow.getPrice(), quantity, cookieToShow.getTitle());
+                    }
+
+                    putItemToCart(cartItem);
+                    quantityDetailed.setText("");
+                    Toast.makeText(DetailedActivity.this, "Uspesno dodato u korpu!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(DetailedActivity.this, "Kolicina ne sme biti prazna, unesite broj!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
 
         //
 
@@ -162,6 +193,35 @@ public class DetailedActivity extends AppCompatActivity {
             return insets;
         });
 
+    }
+
+    private void putItemToCart(CartItem cartItem) {
+
+        //dohvatanje korpe iz SharedPreferences
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("cart", null);
+        Type type = new TypeToken<ArrayList<CartItem>>() {}.getType();
+        ArrayList<CartItem> cart =  gson.fromJson(json, type);
+
+        cart.add(cartItem);
+
+        Gson gson1 = new Gson();
+        String json1 = gson1.toJson(cart);
+        editor.putString("cart", json1);
+        editor.apply();
+    }
+
+    private Integer getNextIdInCart() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        Integer nextIdInCart = sharedPreferences.getInt("nextIdInCart", -1);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("nextIdInCart", nextIdInCart + 1);
+        editor.apply();
+        return nextIdInCart;
     }
 
 //    private void addCommentToProduct(Boolean isCake, Integer idProduct, String commentDescription, String userName) {

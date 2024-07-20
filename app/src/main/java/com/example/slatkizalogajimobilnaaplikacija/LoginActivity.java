@@ -16,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.slatkizalogajimobilnaaplikacija.models.CartItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +24,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -100,6 +104,11 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("firstName", firstNameFromDB);
                         editor.putString("lastName", lastNameFromDB);
                         editor.putInt("idLoggedUser", idFromDB);
+                        editor.putInt("nextIdInCart", 0);
+                        List<CartItem> cart = new ArrayList<>();
+                        Gson gson = new Gson();
+                        String json = gson.toJson(cart);
+                        editor.putString("cart", json);
                         editor.apply();
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);

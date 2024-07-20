@@ -31,6 +31,7 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 #imageslideshow = { group = "com.github.denzcoskun", name = "ImageSlideshow", version.ref = "imageslideshow" }
 imageslideshow = "com.github.denzcoskun:ImageSlideshow:0.1.2"
+gsonimplementation = "com.google.code.gson:gson:2.8.9"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
