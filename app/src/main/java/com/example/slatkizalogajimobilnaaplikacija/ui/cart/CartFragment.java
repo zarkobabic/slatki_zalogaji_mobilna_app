@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CartFragment extends Fragment {
+public class CartFragment extends Fragment implements CartAdapter.OnTotalPriceChangeListener{
 
     private FragmentCartBinding binding;
     private List<CartItem> cartModelList;
@@ -48,16 +48,15 @@ public class CartFragment extends Fragment {
         cartRecycler = binding.recyclerViewCart;
         cartRecycler.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
         cartModelList = new ArrayList<>();
-        cartAdapter = new CartAdapter(getActivity(), cartModelList);
+        cartAdapter = new CartAdapter(getActivity(), cartModelList, this);
         cartRecycler.setAdapter(cartAdapter);
 
         updateUIFromCart();
 
-
         return root;
     }
 
-    private void updateUIFromCart() {
+    public void updateUIFromCart() {
 
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("MySharedPref", getContext().MODE_PRIVATE);
         Gson gson = new Gson();
@@ -78,5 +77,12 @@ public class CartFragment extends Fragment {
 
         cartAdapter.notifyDataSetChanged();
 
+    }
+
+    @Override
+    public void onTotalPriceChanged(int totalPrice) {
+        totalPriceCart.setText(totalPrice + " din");
+        //TODO proveriti da li ovo mora
+        cartAdapter.notifyDataSetChanged();
     }
 }

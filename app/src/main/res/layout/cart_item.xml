@@ -91,7 +91,7 @@
                     android:background="@drawable/input_background"
                     android:elevation="3dp"
                     android:ems="10"
-                    android:inputType="textPassword"
+                    android:inputType="number"
                     android:fontFamily="@font/outfit_regular"
                     android:hint="Unesite novu kolicinu"
                     android:layout_marginTop="30dp"
