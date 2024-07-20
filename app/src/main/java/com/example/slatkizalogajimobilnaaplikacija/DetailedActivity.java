@@ -147,7 +147,7 @@ public class DetailedActivity extends AppCompatActivity {
                 if (!commentText.isEmpty()) {
                     addCommentToProduct(isCake, idProduct, commentText, loggedUserFullName);
                 } else {
-                    Toast.makeText(getParent(), "Please enter a comment", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getParent(), "Molimo unesite komentar", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -230,21 +230,21 @@ public class DetailedActivity extends AppCompatActivity {
                                     commentModelList.add(newComment); // Add the new comment to the local list
                                     commentAdapter.notifyDataSetChanged(); // Notify the adapter about the change
                                     inputCommentDetailed.setText(""); // Clear the input field
-                                    Toast.makeText(DetailedActivity.this, "Comment added", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(DetailedActivity.this, "Komentar je dodat", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(DetailedActivity.this, "Failed to add comment", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(DetailedActivity.this, "Neuspesno unosenje komentara", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }
                     }
                 } else {
-                    Toast.makeText(DetailedActivity.this, "Product not found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailedActivity.this, "Proizvod nije nadjen", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(DetailedActivity.this, "Failed to add comment: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailedActivity.this, "Neuspesno dodavanje komentara: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
