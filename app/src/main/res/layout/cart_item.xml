@@ -1,0 +1,143 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_marginVertical="30dp"
+    app:cardCornerRadius="25dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/lightOrange">
+
+        <TextView
+            android:id="@+id/cartItemTitleQuantityPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/outfit_black"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="Kolicina x Ime (cena din)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:background="@color/lightOrange"/>
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_gravity="start"
+            android:layout_marginStart="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/outfit_black"
+                android:text="Ukupna cena: "
+                android:paddingHorizontal="20dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@color/lightOrange"/>
+
+            <TextView
+                android:id="@+id/itemCartTotalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/outfit_black"
+                android:text="X din"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/customRed"
+                android:background="@color/lightOrange"/>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_marginVertical="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:cardCornerRadius="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_border">
+
+                <EditText
+                    android:id="@+id/itemCartNewQuantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="62dp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/input_background"
+                    android:elevation="3dp"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/outfit_regular"
+                    android:hint="Unesite novu kolicinu"
+                    android:layout_marginTop="30dp"
+                    android:lineSpacingExtra="34sp"
+                    android:padding="13dp"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/itemCartUpdateQuantityButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/outfit_regular"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingVertical="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:paddingTop="40dp"
+                    android:layout_gravity="center"
+                    android:text="Azuriraj"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/itemCartDeleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/outfit_regular"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingVertical="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center"
+            android:text="Ukloni proizvod"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

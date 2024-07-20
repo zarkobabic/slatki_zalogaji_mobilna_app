@@ -1,9 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.cart.CartFragment">
+    android:layout_height="650dp"
+    android:background="#F05858"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Korpa"
+            android:textSize="65dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/outfit_bold"
+            android:layout_gravity="center" />
+
+        <View
+            android:layout_width="200dp"
+            android:layout_height="5dp"
+            android:background="@color/lightOrange"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center" />
 
 
-</FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/outfit_black"
+                    android:paddingHorizontal="15dp"
+                    android:textAlignment="center"
+                    android:paddingTop="15dp"
+                    android:text="Vasa narudzbina:"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:layout_gravity="center"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="3dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_cart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:layout_marginVertical="30dp" />
+
+            </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/outfit_black"
+            android:paddingHorizontal="15dp"
+            android:textAlignment="center"
+            android:paddingTop="15dp"
+            android:text="Ukupna cena:"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/totalPriceCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/outfit_black"
+            android:paddingHorizontal="15dp"
+            android:textAlignment="center"
+            android:paddingTop="15dp"
+            android:text="Total_price_placeholder"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/changePasswordButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/outfit_regular"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="50dp"
+            android:paddingVertical="20dp"
+            android:paddingTop="40dp"
+            android:text="Potvrdi narudzbinu"
+            android:layout_gravity="center"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
