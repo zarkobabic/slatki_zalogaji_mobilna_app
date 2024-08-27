@@ -34,7 +34,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnTotalPriceCh
     private TextView totalPriceCart;
 
     public CartFragment() {
-        // Required empty public constructor
+
     }
 
     @Override

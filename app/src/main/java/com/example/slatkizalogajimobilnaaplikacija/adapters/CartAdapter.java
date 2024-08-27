@@ -70,16 +70,31 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             @Override
             public void onClick(View view) {
                 deleteItemForId(cartItem.getIdInCart());
+                substractNextIdInCart();
+                updateUIWithInfo(cartItem, holder);
                 calculateTotalPriceAndSendToCartFragment();
             }
         });
 
     }
 
+    private void substractNextIdInCart() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPref", context.MODE_PRIVATE);
+        Integer nextIdInCart = sharedPreferences.getInt("nextIdInCart", -1);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("nextIdInCart", nextIdInCart - 1);
+        editor.apply();
+    }
+
     private void deleteItemForId(int idInCart) {
         cartList.remove(idInCart);
-        removeItemFromCartLocalStorage(idInCart);
 
+        for(CartItem item:cartList)
+        {
+            if(item.getIdInCart() > idInCart)
+                item.setIdInCart(item.getIdInCart() - 1);
+        }
+        removeItemFromCartLocalStorage(idInCart);
     }
 
     private void removeItemFromCartLocalStorage(int idInCart) {
@@ -92,6 +107,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         ArrayList<CartItem> cart = gson.fromJson(json, type);
 
         cart.remove(idInCart);
+        for(CartItem item:cart)
+        {
+            if(item.getIdInCart() > idInCart)
+                item.setIdInCart(item.getIdInCart() - 1);
+        }
 
         Gson gson1 = new Gson();
         String json1 = gson1.toJson(cart);
