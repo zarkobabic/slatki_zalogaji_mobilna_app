@@ -252,6 +252,20 @@
                 android:layout_marginBottom="16dp"
                 android:background="@color/lightOrange" />
 
+            <TextView
+                android:id="@+id/emptyComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/outfit_bold"
+                android:paddingTop="16dp"
+                android:text="Nazalost,jos uvek nema \nkomentara za ovaj proizvod"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewComments"
                 android:layout_width="match_parent"

@@ -45,7 +45,7 @@ import java.util.List;
 public class DetailedActivity extends AppCompatActivity {
 
     ImageView imageDetailed;
-    TextView titleDetailed, descriptionDetailed, compositionDetailed, priceDetailed;
+    TextView titleDetailed, descriptionDetailed, compositionDetailed, priceDetailed, emptyComments;
     EditText inputCommentDetailed, quantityDetailed;
     Button buttonAddComment,buttonAddToCart;
     Cake cakeToShow = null;
@@ -73,6 +73,7 @@ public class DetailedActivity extends AppCompatActivity {
         quantityDetailed = findViewById(R.id.quantityDetailed);
         buttonAddComment = findViewById(R.id.buttonAddComment);
         buttonAddToCart = findViewById(R.id.buttonAddToCart);
+        emptyComments = findViewById(R.id.emptyComments);
 
         commentRecycler = findViewById(R.id.recyclerViewComments);
         commentRecycler.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL, false));
@@ -134,6 +135,9 @@ public class DetailedActivity extends AppCompatActivity {
             }
         }
 
+        if(commentModelList.size() == 0) {
+            emptyComments.setVisibility(View.VISIBLE);
+        }
 
 
         //Button listeners

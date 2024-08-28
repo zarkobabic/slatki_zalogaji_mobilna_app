@@ -43,6 +43,8 @@ public class CartFragment extends Fragment implements CartAdapter.OnTotalPriceCh
     private RecyclerView cartRecycler;
     private TextView totalPriceCart;
     private Button addOrderCartButton;
+    private TextView cartEmptyText;
+    private TextView totalPriceTitle;
 
     public CartFragment() {
 
@@ -62,6 +64,8 @@ public class CartFragment extends Fragment implements CartAdapter.OnTotalPriceCh
         cartAdapter = new CartAdapter(getActivity(), cartModelList, this);
         cartRecycler.setAdapter(cartAdapter);
         addOrderCartButton = binding.addOrderCartButton;
+        cartEmptyText = binding.cartEmptyText;
+        totalPriceTitle = binding.totalPriceTitle;
 
         addOrderCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,6 +165,14 @@ public class CartFragment extends Fragment implements CartAdapter.OnTotalPriceCh
         }
 
         totalPriceCart.setText(totalPrice + " din");
+
+        if(cartModelList.size() == 0)
+        {
+            cartEmptyText.setVisibility(View.VISIBLE);
+            totalPriceCart.setVisibility(View.GONE);
+            totalPriceTitle.setVisibility(View.GONE);
+            addOrderCartButton.setVisibility(View.GONE);
+        }
 
         cartAdapter.notifyDataSetChanged();
     }
