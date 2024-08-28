@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.slatkizalogajimobilnaaplikacija.DetailedActivity;
 import com.example.slatkizalogajimobilnaaplikacija.R;
 import com.example.slatkizalogajimobilnaaplikacija.databinding.FragmentPersonalDataBinding;
+import com.example.slatkizalogajimobilnaaplikacija.models.CartItem;
 import com.google.firebase.Firebase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,8 +26,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PersonalDataFragment extends Fragment {
@@ -100,6 +104,18 @@ public class PersonalDataFragment extends Fragment {
                         if (task.isSuccessful()) {
                             Toast.makeText(getActivity(), "Profil korisnika je azuriran", Toast.LENGTH_SHORT).show();
                             editMode = false;
+                            if(!sharedPreferences.getString("firstName", "").equals(firstName) ||
+                                    !sharedPreferences.getString("lastName", "").equals(lastName))
+                            {
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("firstName", firstName);
+                                editor.putString("lastName", lastName);
+                                //Ukoliko se ime promeni moramo promeniti ime u side view
+                                TextView myTextView = getActivity().findViewById(R.id.panelUsername);
+                                String localStorageFullName = firstName + " " + lastName;
+                                myTextView.setText(localStorageFullName);
+                                editor.apply();
+                            }
                             updateUI();
                         } else {
                             // Update failed
